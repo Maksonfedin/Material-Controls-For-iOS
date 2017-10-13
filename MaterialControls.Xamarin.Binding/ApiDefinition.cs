@@ -349,6 +349,14 @@ namespace MaterialControls
 		// @property (nonatomic) BOOL enableTrackColor;
 		[Export("enableTrackColor")]
 		bool EnableTrackColor { get; set; }
+
+		// @property (nonatomic) float circularSize;
+		[Export("circularSize")]
+		float CircularSize { get; set; }
+
+		// @property (nonatomic) float trackWidth;
+		[Export("trackWidth")]
+		float TrackWidth { get; set; }
 	}
 
 	// @interface MDRippleLayer : CALayer

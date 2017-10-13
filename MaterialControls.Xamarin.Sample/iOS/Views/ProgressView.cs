@@ -26,7 +26,23 @@ namespace MaterialControls.Xamarin.Sample.iOS.Views
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
+
+			var _progress = new MDProgress
+			{
+				TranslatesAutoresizingMaskIntoConstraints = false,
+				CircularSize = 20f,// any sizes
+				ProgressColor = UIColor.Blue,
+				ProgressType = MDProgressType.Indeterminate,
+				ProgressStyle = MDProgressStyle.Circular,
+				TrackWidth = 2f
+			};
+
+			var children = _progress.Layer.Sublayers;
+			children[0].RemoveFromSuperLayer();
+
+			_progress.Center = new CoreGraphics.CGPoint(40, 40);
+			View.AddSubview(_progress);
+
 			Title="MDProgress";
 			var set = this.CreateBindingSet<ProgressView, ProgressViewModel> ();
 			set.Bind (CircularProgress).To (vm => vm.Progress).For(v=>v.Progress);
